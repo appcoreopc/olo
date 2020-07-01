@@ -24,5 +24,24 @@ namespace Olo.Topping.Core.UnitTests
             var result = target.GetTop(10);
             Assert.True(result.Count() == 2);
         }
+
+        [Fact]
+        public void WhenPizzaToppingsAreDifferentThenItCountWillNotBeAdded()
+        {
+            var target = new TopPizzaSelector();
+            target.Process(GetTrickyPepperPizzaToppingData());
+            var result = target.GetTop(10).ToArray();
+            Assert.True(result.Count() == 6);
+        }
+
+        [Fact]
+        public void WhenTokKAreRequestedThenCountGivenMustTally()
+        {
+            var target = new TopPizzaSelector();
+            target.Process(GetTrickyPepperPizzaToppingData());
+            var result = target.GetTop(3).ToArray();
+            Assert.True(result.Count() == 3);
+        }
+
     }
 }
