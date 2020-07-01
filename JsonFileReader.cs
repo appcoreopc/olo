@@ -1,14 +1,15 @@
 using System.IO;
+using System.Threading.Tasks;
 
 namespace olo
 {
     public class JsonFileReader
     {
-        public string GetJsonFileContent(string targetJsonFile)
+        public async Task<string> GetJsonFileContent(string targetJsonFile)
         {
             using (StreamReader reader = new StreamReader(targetJsonFile))
             {
-                reader.ReadToEndAsync();
+                return await reader.ReadToEndAsync();
             }
 
             return string.Empty;

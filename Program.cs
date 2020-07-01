@@ -1,14 +1,20 @@
 ﻿using System;
-using Newtonsoft; 
+
+
+
+
+using System.Threading.Tasks;
+using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace olo
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-           var content =  new JsonFileReader().GetJsonFileContent("./pizza-small.json");
-            var model =  JsonConvert.
+           var content =  await new JsonFileReader().GetJsonFileContent("./pizza-small.json");
+            var model =  JsonConvert.DeserializeObject<PizzaModel>(content);
         }
         
     }
