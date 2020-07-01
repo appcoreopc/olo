@@ -6,7 +6,7 @@ namespace Olo.Topping.Core.UnitTests
     public class TopPizzaSelectorTests : BaseTest
     {
         [Fact]
-        public void WhenKeyIsTheSameThenCountValueIncrease()
+        public void WhenKeyAreMapToDictionaryThenValueMustBeLowerCase()
         {
             var target = new TopPizzaSelector();
             target.Process(GetTwoTypesPizzaToppingData());
@@ -35,13 +35,12 @@ namespace Olo.Topping.Core.UnitTests
         }
 
         [Fact]
-        public void WhenTokKAreRequestedThenCountGivenMustTally()
+        public void WhenTop3AreRequestedThenCountGivenMustBe()
         {
             var target = new TopPizzaSelector();
             target.Process(GetTrickyPepperPizzaToppingData());
             var result = target.GetTop(3).ToArray();
             Assert.True(result.Count() == 3);
         }
-
     }
 }
