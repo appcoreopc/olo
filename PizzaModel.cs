@@ -1,10 +1,6 @@
-public class PizzaModel {
-
-    public ToppingModel[] Data { get; set; }
-}
-
-
-public class ToppingModel
+using System.Collections.Generic;
+public class PizzaModel
 {
-    public string[] Toppings { get; set; }
+    public IList<string> Toppings { get; set; }
 }
+

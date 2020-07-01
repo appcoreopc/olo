@@ -11,8 +11,6 @@ namespace olo
             {
                 return await reader.ReadToEndAsync();
             }
-
-            return string.Empty;
         }
     }
 }
