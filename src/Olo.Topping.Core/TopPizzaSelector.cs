@@ -8,12 +8,13 @@ namespace Olo
         private const string Separator = ",";
         Dictionary<string, int> DataMapper = new Dictionary<string, int>();
 
-        public void Process(IList<PizzaModel> model)
+        public void Process(IEnumerable<PizzaModel> model)
         {
             foreach (var item in model)
             {
                 var key = string.Join(Separator, item.Toppings);
-                MapCountItem(key);
+                
+                MapCountItem(key.ToLower());
             }
         }
 

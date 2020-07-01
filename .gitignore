@@ -4,3 +4,7 @@ obj/*
 src/Olo.Topping.Core/.vscode/*
 src/Olo.Topping.Core/bin/*
 src/Olo.Topping.Core/obj/*
+.DS_Store
+src/.DS_Store
+src/Olo.Topping.Core.UnitTests/bin/*
+src/Olo.Topping.Core.UnitTests/obj/*

@@ -3,7 +3,7 @@ namespace Olo
 {
     public interface ITopSelector
     {
-        void Process(IList<PizzaModel> model);
+        void Process(IEnumerable<PizzaModel> model);
 
         IEnumerable<KeyValuePair<string,int>> GetTop(int topItem);
     }
