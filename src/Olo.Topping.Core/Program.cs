@@ -23,6 +23,7 @@ namespace Olo
         private static async Task GetPizzaToppingRanks(string[] args)
         {
             var content = await new JsonFileReader().GetJsonFileContent(args[0]);
+           
             var model = JsonConvert.DeserializeObject<IList<PizzaModel>>(content);
 
             var pizzaSelector = new TopPizzaSelector();
