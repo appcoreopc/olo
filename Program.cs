@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System;
+using System.Linq;
 
 namespace Olo
 {
@@ -9,14 +11,36 @@ namespace Olo
     {
         static async Task Main(string[] args)
         {
-           var content =  await new JsonFileReader().GetJsonFileContent("./pizza-small.json");
-           var model =  JsonConvert.DeserializeObject<IList<PizzaModel>>(content);
+            if (args.Length < 1)
+            {
+                Console.WriteLine("Please provide a json filename that contains pizza toppings (json).");
+            }
 
-           var pizzaSelector = new TopPizzaSelector();
+            await GetPizzaToppingRanks();
+        }
+
+        private static async Task GetPizzaToppingRanks()
+        {
+            var content = await new JsonFileReader().GetJsonFileContent("./pizza-small.json");
+            var model = JsonConvert.DeserializeObject<IList<PizzaModel>>(content);
+
+            var pizzaSelector = new TopPizzaSelector();
 
             pizzaSelector.Process(model);
 
-            pizzaSelector.GetTop(10);
+            var rankingResult = pizzaSelector.GetTop(10);
+
+            if (rankingResult != null && rankingResult.Count() > 0)
+            {
+                Console.WriteLine($"Top most ordered pizza toppings are :");
+                foreach (var item in rankingResult)
+                {
+                    Console.WriteLine($" Ingredients {item.Key}: Count: {item.Value}");
+                }
+            }
+            else
+                Console.WriteLine($"No pizza toppings results found");
+
         }
     }
 }
