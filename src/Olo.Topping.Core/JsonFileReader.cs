@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Olo
 {
-    public class JsonFileReader
+    public class JsonFileReader : IJsonFileReader
     {
         public async Task<string> GetJsonFileContent(string targetJsonFile)
         {

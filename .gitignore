@@ -1,2 +1,6 @@
 bin/*
 obj/*
+.vscode/*
+src/Olo.Topping.Core/.vscode/*
+src/Olo.Topping.Core/bin/*
+src/Olo.Topping.Core/obj/*

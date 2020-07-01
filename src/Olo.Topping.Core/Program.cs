@@ -14,14 +14,15 @@ namespace Olo
             if (args.Length < 1)
             {
                 Console.WriteLine("Please provide a json filename that contains pizza toppings (json).");
+                return;
             }
 
-            await GetPizzaToppingRanks();
+            await GetPizzaToppingRanks(args);
         }
 
-        private static async Task GetPizzaToppingRanks()
+        private static async Task GetPizzaToppingRanks(string[] args)
         {
-            var content = await new JsonFileReader().GetJsonFileContent("./pizza-small.json");
+            var content = await new JsonFileReader().GetJsonFileContent(args[0]);
             var model = JsonConvert.DeserializeObject<IList<PizzaModel>>(content);
 
             var pizzaSelector = new TopPizzaSelector();
