@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace olo
+namespace Olo
 {
     class Program
     {
@@ -17,7 +17,6 @@ namespace olo
             pizzaSelector.Process(model);
 
             pizzaSelector.GetTop(10);
-
         }
     }
 }
